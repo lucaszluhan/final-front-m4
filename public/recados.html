@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Lista de Recados - Main</title>
+      <!-- bootstrap -->
+      <link
+         href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css"
+         rel="stylesheet"
+         integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU"
+         crossorigin="anonymous"
+      />
+   </head>
+   <body class="d-flex flex-column hv-100 p-3">
+      <h1>Meus Recados</h1>
+      <div class="d-flex mb-5">
+         <div class="form-floating w-25 me-4">
+            <input type="text" class="form-control" id="floatingInput" placeholder="Descrição" />
+            <label for="floatingInput" class="lead opacity-50">Descrição</label>
+         </div>
+         <div class="form-floating w-100 d-flex">
+            <input type="text" class="form-control me-1" id="floatingInput" placeholder="Detalhamento" />
+            <label for="floatingInput" class="lead opacity-50">Detalhamento</label>
+            <button id="newNoteButton" type="button" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#modalNewNote">Salvar</button>
+         </div>
+      </div>
+      <table class="table table-striped table-hover">
+         <thead class="border-top border-secondary">
+            <tr>
+               <th scope="col">#</th>
+               <th scope="col" class="w-25">Descrição</th>
+               <th scope="col">Detalhamento</th>
+               <th scope="col" class="w-25">Ação</th>
+            </tr>
+         </thead>
+         <tbody id="listBody"></tbody>
+      </table>
+      <!-- modal nova nota -->
+      <div class="modal fade" id="modalNewNote" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+         <div class="modal-dialog">
+            <div class="modal-content">
+               <div class="modal-header">
+                  <h5 id="modalNewNoteTitle" class="modal-title"></h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+               </div>
+               <div id="modalNewNoteBody" class="modal-body"></div>
+               <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Ok</button>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- modal deletar nota -->
+      <div class="modal fade" id="modalDeleteNote" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+         <div class="modal-dialog">
+            <div class="modal-content">
+               <div class="modal-header">
+                  <h5 id="modalNewNoteTitle" class="modal-title">Deletar Nota</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+               </div>
+               <div id="modalNewNoteBody" class="modal-body">Você está prestes a deletar sua nota e não poderá recupera-la. Tem certeza?</div>
+               <div class="modal-footer">
+                  <button id="deleteButtonModal" type="button" class="btn btn-danger" data-bs-dismiss="modal">Confirmar</button>
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- modal editar nota -->
+      <div class="modal fade" id="modalEditNote" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+         <div class="modal-dialog">
+            <div class="modal-content">
+               <div class="modal-header">
+                  <h5 id="modalEditTitle" class="modal-title">Editar Nota</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+               </div>
+               <div id="modalEditNoteBody" class="modal-body">Digite sua edição abaixo:</div>
+               <div class="d-flex">
+                  <div class="form-floating mx-1">
+                     <input type="text" class="form-control" id="floatingInput" placeholder="Descrição" />
+                     <label for="floatingInput" class="lead opacity-50">Descrição</label>
+                  </div>
+                  <div class="form-floating mx-1 w-100">
+                     <input type="text" class="form-control" id="floatingInput" placeholder="Detalhamento" />
+                     <label for="floatingInput" class="lead opacity-50">Detalhamento</label>
+                  </div>
+               </div>
+               <div class="modal-footer">
+                  <button id="editButtonModal" type="button" class="btn btn-success" data-bs-dismiss="modal">Confirmar</button>
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- scripts -->
+      <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+      <script
+         src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+         integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+         crossorigin="anonymous"
+      ></script>
+      <script src="./recados.js"></script>
+   </body>
+</html>
